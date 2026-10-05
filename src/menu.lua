@@ -1,10 +1,40 @@
 
- function showMenu  (font)
+ function showMenu  ()
+
+--Saco el ancho y alto de la pantalla
 screenWidth = love.graphics.getWidth()
-screenHeigth = love.graphics.getHeight()
-width = 100
-Heigth = 200
+screenHeight = love.graphics.getHeight()
+
+
+
+
+--Pongo botones (como no hay structs, uso esto que es una tabla en teoria)
+local button1 = {}
+button1.width = 250
+button1.height = 50
+button1.x = (screenWidth / 2) - button1.width / 2
+button1.y = (screenHeight / 4) - button1.height / 2 
+
+local button2 = {}
+button2.width = 250
+button2.height = 50
+button2.x = (screenWidth / 2) - button2.width / 2
+button2.y = ((screenHeight / 4) + screenHeight / 8 ) - button2.height / 2 
+
+local button3 = {}
+button3.width = 250
+button3.height = 50
+button3.x = (screenWidth / 2) - button3.width / 2
+button3.y = ((screenHeight / 4) + screenHeight / 8 * 2) - button3.height / 2 
+
 love.graphics.setColor(1, 1, 1)
-love.graphics.rectangle("fill",(screenWidth / 2) - width / 2, (screenHeigth / 2) - Heigth / 2 ,width,Heigth)
+
+love.graphics.rectangle("fill",button1.x,button1.y,button1.width,button1.height)
+
+love.graphics.rectangle("fill",button2.x,button2.y,button2.width,button3.height)
+
+love.graphics.rectangle("fill",button3.x,button3.y,button3.width,button3.height)
 
  end
+
+
