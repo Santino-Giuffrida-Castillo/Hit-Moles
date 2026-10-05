@@ -37,4 +37,15 @@ love.graphics.rectangle("fill",button3.x,button3.y,button3.width,button3.height)
 
  end
 
+  --Funcion para saber si el mouse se apreto en el boton
+function love.mousepressed(x, y, button, istouch, presses)
+    --Si se clickeo
+    if button == 1 then
+        --tengo que chequear si el xy del click esta adentro del boton
+        if x >= button.x and x <= (button.x + button.width) and y >= button.y and (button.y + button.height)  then
+            print("HOLA PAPU!")
+        end
+        
+    end
+end
 
