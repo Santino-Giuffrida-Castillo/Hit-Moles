@@ -32,6 +32,7 @@ function spawnMole()
 end
 
 function updateGame(deltatime)
+
 if player.lives <= 0 then
     actualScreen = "lose"
 end
@@ -40,16 +41,28 @@ if mole.isActive == false then
     mole.timeToReactivate = mole.timeToReactivate - deltatime
     if mole.timeToReactivate <= 0 then
         spawnMole()
-    end
+        if player.points >= 5 and player.points < 30 then
+        mole.timeActive = mole.timeActive - 1 
+        elseif player.points >= 30 and player.points < 50 then
+        mole.timeActive = mole.timeActive - 1.25 
+        elseif player.points >= 50 then
+        mole.timeActive = mole.timeActive - 1.5
+        end
 
+    end
 end
+
 if mole.isActive == true then
     mole.timeActive = mole.timeActive - deltatime
     if mole.timeActive <= 0 then
         mole.isActive = false
         player.lives = player.lives - 1
+        mole.timeToReactivate = 2
     end
 end
+
+
+
 end
 
 function drawMole()
@@ -67,6 +80,7 @@ function killMole(x,y)
 end
 
 function playGame(menuFont)
+    player.points = 40
 love.graphics.setColor(1, 1, 1)
 --imprimir vida 
 love.graphics.printf("Vidas:",-100,0 + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
