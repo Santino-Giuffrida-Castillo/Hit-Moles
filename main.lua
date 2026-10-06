@@ -34,8 +34,9 @@ end
     elseif actualScreen == "howPlay" then
       showHowPlay(menuFont)
     elseif actualScreen == "credits" then
-      showCredits(menuFont)
+      showCredits(menuFont, menuTitleFont)
     elseif actualScreen == "playing" or actualScreen == "lose"then
+      
       playGame(menuFont)
     end
   end

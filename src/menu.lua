@@ -3,6 +3,9 @@
 screenWidth = love.graphics.getWidth()
 screenHeight = love.graphics.getHeight()
 --Pongo botones (como no hay structs, uso esto que es una tabla en teoria)
+local background = {}
+background.image = love.graphics.newImage("res/Cartoon_Forest_BG_01.png")
+
 local button1 = {}
 button1.width = 250
 button1.height = 50
@@ -33,7 +36,7 @@ button4.y = ((screenHeight / 4) + screenHeight / 8 * 3) - button4.height / 2
 
 love.graphics.setColor(1, 1, 1)
 
-
+love.graphics.draw(background.image,0,0,0,screenWidth / background.image:getWidth(), screenHeight / background.image:getHeight())
 love.graphics.rectangle("fill",button1.x,button1.y,button1.width,button1.height)
 
 love.graphics.rectangle("fill",button2.x,button2.y,button2.width,button2.height)

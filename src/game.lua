@@ -11,13 +11,16 @@ mole.y = 0
 mole.height = 50
 mole.width = 50
 mole.isActive = false
-mole.image = love.graphics.newImage("res/mole.jpg")
+mole.image = love.graphics.newImage("res/mole.png")
 mole.timeActive = 2
 mole.timeToReactivate = 2;
 
 local player = {}
 player.points = 0
 player.lives = 3
+
+local background = {}
+background.image = love.graphics.newImage("res/Cartoon_Forest_BG_03.png")
 
 function initPlayer()
 player.points = 0
@@ -82,12 +85,15 @@ end
 function playGame(menuFont)
 
 love.graphics.setColor(1, 1, 1)
+love.graphics.draw(background.image,0,0,0,screenWidth / background.image:getWidth(), screenHeight / background.image:getHeight())
 --imprimir vida 
-love.graphics.printf("Vidas:",-100,0 + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
+love.graphics.printf("VIDAS:",-100,0 + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
 love.graphics.printf(player.lives,(0 - 100) + 35,0+ (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
 --imprimir los puntos
-love.graphics.printf("Puntos:",-20,0 + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
+love.graphics.printf("PUNTOS:",-20,0 + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
 love.graphics.printf(player.points,(0 - 20) + 35,0+ (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
+
+
 drawMole()
 --Pantalla derrota 
 if actualScreen == "lose" then
