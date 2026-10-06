@@ -1,3 +1,4 @@
+
 --Saco el ancho y alto de la pantalla
 screenWidth = love.graphics.getWidth()
 screenHeight = love.graphics.getHeight()
@@ -95,7 +96,8 @@ function love.mousepressed(x, y, button, istouch, presses)
             --SALIR
             actualScreen = "menu"
         end
-
+      elseif actualScreen == "playing" then
+            killMole(x,y)
       end 
         
     end
