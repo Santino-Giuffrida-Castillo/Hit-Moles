@@ -42,9 +42,13 @@ love.graphics.rectangle("fill",button3.x,button3.y,button3.width,button3.height)
 
 love.graphics.rectangle("fill",button4.x,button4.y,button4.width,button4.height)
 
---Le pongo la fuente que es la que viene por parametro
+--Le pongo la fuente que es la que viene por parametro y dibujo el titulo
+love.graphics.setFont(menuTitleFont)
+love.graphics.printf("Hit-Moles",275,50,button1.width, "center")
+
 love.graphics.setColor(0, 0, 0)
 love.graphics.setFont(menuFont)
+
 
 --Uso printf para poner el texto de jugar
 love.graphics.printf("JUGAR",button1.x,button1.y + (button1.height / 2) - 12 / 2,button1.width, "center")
