@@ -72,7 +72,7 @@ function drawMole()
 end
 
 function killMole(x,y)
-    if x >= mole.x and x <= (mole.x + mole.width) and y >= mole.y and y <= (mole.y + mole.height) then
+    if x >= mole.x and x <= (mole.x + mole.width) and y >= mole.y and y <= (mole.y + mole.height) and mole.isActive == true then
         mole.isActive = false
         mole.timeToReactivate = 2
         player.points = player.points + 1
