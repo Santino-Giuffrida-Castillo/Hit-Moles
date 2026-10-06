@@ -80,7 +80,7 @@ function killMole(x,y)
 end
 
 function playGame(menuFont)
-    player.points = 40
+
 love.graphics.setColor(1, 1, 1)
 --imprimir vida 
 love.graphics.printf("Vidas:",-100,0 + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
