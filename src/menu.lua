@@ -28,7 +28,7 @@ button4.x = (screenWidth / 2) - button4.width / 2
 button4.y = ((screenHeight / 4) + screenHeight / 8 * 3) - button4.height / 2 
 
 
- function showMenu (menuFont)
+ function showMenu (menuFont, menuTitleFont)
 
 
 love.graphics.setColor(1, 1, 1)
@@ -48,7 +48,7 @@ love.graphics.setFont(menuFont)
 
 --Uso printf para poner el texto de jugar
 love.graphics.printf("JUGAR",button1.x,button1.y + (button1.height / 2) - 12 / 2,button1.width, "center")
-love.graphics.printf("OPCIONES",button2.x,button2.y + (button2.height / 2) - 12 / 2,button2.width, "center")
+love.graphics.printf("COMO JUGAR?",button2.x,button2.y + (button2.height / 2) - 12 / 2,button2.width, "center")
 love.graphics.printf("CREDITOS",button3.x,button3.y + (button3.height / 2) - 12 / 2,button3.width, "center")
 love.graphics.printf("SALIR",button4.x,button4.y + (button4.height / 2) - 12 / 2,button4.width, "center")
  end
@@ -60,11 +60,12 @@ function love.mousepressed(x, y, button, istouch, presses)
        if actualScreen == "menu" then
         if x >= button1.x and x <= (button1.x + button1.width) and y >= button1.y and y <= (button1.y + button1.height)then
             --JUGAR
+            initPlayer()
             actualScreen = "playing"
         end
         if x >= button2.x and x <= (button2.x + button2.width) and y >= button2.y and y <= (button2.y + button2.height)then
-            --OPCIONES
-            actualScreen = "options"
+            --COMO JUGAR
+            actualScreen = "howPlay"
         end
         if x >= button3.x and x <= (button3.x + button3.width) and y >= button3.y and y <= (button3.y + button3.height)then
             --CREDITOS
@@ -75,7 +76,7 @@ function love.mousepressed(x, y, button, istouch, presses)
             love.event.quit()
         end
 
-      elseif actualScreen == "options" then
+      elseif actualScreen == "howPlay" then
         if x >= button4.x and x <= (button4.x + button4.width) and y >= button4.y and y <= (button4.y + button4.height)then
             --SALIR
             actualScreen = "menu"
@@ -91,12 +92,8 @@ function love.mousepressed(x, y, button, istouch, presses)
             --SALIR
             actualScreen = "menu"
         end
-      elseif actualScreen == "win" then  
-                if x >= button4.x and x <= (button4.x + button4.width) and y >= button4.y and y <= (button4.y + button4.height)then
-            --SALIR
-            actualScreen = "menu"
-        end
       elseif actualScreen == "playing" then
+            
             killMole(x,y)
       end 
         
