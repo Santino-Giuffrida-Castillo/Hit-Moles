@@ -1,8 +1,8 @@
 require "src.menu"
 require "src.credits"
-require "src.options"
+require "src.howPlay"
 require "src.game"
-
+--main
 
 
 
@@ -12,29 +12,30 @@ require "src.game"
 function love.load()
   actualScreen = "menu"
   menuFont = love.graphics.newFont(12)
+  menuTitleFont = love.graphics.newFont(40)
   love.window.setTitle("Hit-Moles")
 end
 
- 
+
 -- Aca iria la logia del juego (todo lo que se tenga que actualizar)
 
-function love.update()
+function love.update(deltatime)
 
   if actualScreen == "playing" then
-    
+    updateGame(deltatime)
   end
 
 end
 
 --Aca ira el dibujo del juego
-   function love.draw()    
+  function love.draw()    
     if actualScreen == "menu" then
-      showMenu(menuFont)
-    elseif actualScreen == "options" then
-      showOptions(menuFont)
+      showMenu(menuFont, menuTitleFont)
+    elseif actualScreen == "howPlay" then
+      showHowPlay(menuFont)
     elseif actualScreen == "credits" then
       showCredits(menuFont)
-    elseif actualScreen == "playing" or actualScreen == "lose" or actualScreen == "win" then
+    elseif actualScreen == "playing" or actualScreen == "lose"then
       playGame(menuFont)
     end
   end
