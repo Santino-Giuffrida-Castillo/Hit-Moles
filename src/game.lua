@@ -18,6 +18,7 @@ mole.timeToReactivate = 2;
 local player = {}
 player.points = 0
 player.lives = 3
+player.hightScore = 0
 
 local background = {}
 background.image = love.graphics.newImage("res/Cartoon_Forest_BG_03.png")
@@ -38,6 +39,9 @@ function updateGame(deltatime)
 
 if player.lives <= 0 then
     actualScreen = "lose"
+    if player.hightScore < player.points then
+        player.hightScore = player.points
+    end
 end
 
 if mole.isActive == false then
@@ -97,8 +101,14 @@ love.graphics.printf(player.points,(0 - 20) + 35,0+ (exitGameButton.height / 2) 
 drawMole()
 --Pantalla derrota 
 if actualScreen == "lose" then
+
 love.graphics.printf("Puntos:",exitGameButton.x,exitGameButton.y - 50 + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
+
 love.graphics.printf(player.points,exitGameButton.x + 35,exitGameButton.y -50 + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
+
+love.graphics.printf("HIGHTSCORE:",exitGameButton.x,exitGameButton.y - 100 + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
+love.graphics.printf(player.hightScore,exitGameButton.x + 65,exitGameButton.y -100 + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
+
 love.graphics.rectangle("fill",exitGameButton.x,exitGameButton.y,exitGameButton.width,exitGameButton.height)
 love.graphics.printf("SALIR",exitGameButton.x,exitGameButton.y + (exitGameButton.height / 2) - 12 / 2,exitGameButton.width, "center")
 

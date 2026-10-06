@@ -32,11 +32,11 @@ end
     if actualScreen == "menu" then
       showMenu(menuFont, menuTitleFont)
     elseif actualScreen == "howPlay" then
-      showHowPlay(menuFont)
+      showHowPlay(menuFont, menuTitleFont)
     elseif actualScreen == "credits" then
       showCredits(menuFont, menuTitleFont)
     elseif actualScreen == "playing" or actualScreen == "lose"then
-      
+
       playGame(menuFont)
     end
   end
